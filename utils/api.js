@@ -15,6 +15,16 @@ class Api {
 		//console.log(data);
 		return data.movies;		
 	}
+
+	async getMovies() {
+		//HACEMOS UNA QUERY PARA ESPERAR UNA PETICION
+		//UZAREMOS FETCH QUE ES UNA PETICION DE PROMESAS
+		//EL USO DE `` ES UN TEMPLATE TEXT
+		const query = await fetch(`${BASE_API}list_movies.json`);
+		const { data } = await query.json();//ESTO ES PARA SOLO TRAER DATA
+		//console.log(data);
+		return data.movies;		
+	}
 }
 
 export default new Api();
